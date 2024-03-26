@@ -25,22 +25,10 @@
             </div>
         
             <div class="thumbs">
-                <div @click="activeCounter(slides, active, true)" class="prev"></div>
-                <div @click="activeCounter(slides, active, false)" class="next"></div>
-                <div class="thumb active">
-                    <img src="img/01.webp" alt="Svezia" />
-                </div>
-                <div class="thumb">
-                    <img src="img/02.webp" alt="Ratchet & Clank" />
-                </div>
-                <div class="thumb">
-                    <img src="img/03.webp" alt="Fortnite" />
-                </div>
-                <div class="thumb">
-                    <img src="img/04.webp" alt="Stray" />
-                </div>
-                <div class="thumb">
-                    <img src="img/05.webp" alt="Avengers" />
+                <div @click="activeCounter(false)" class="prev"></div>
+                <div @click="activeCounter(true)" class="next"></div>
+                <div v-for="(currentElement, i) in slides" :class='i === active ? "active" : ""' class="thumb">
+                    <img :src="currentElement.image" alt="Svezia" />
                 </div>
             </div>
         

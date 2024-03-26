@@ -59,25 +59,20 @@ createApp({
     element: function(){
         return this.slides;
     },
-    activeCounter(element, counter, bool){
-        if (bool === true){
-            if(counter < element.length - 1){
-                counter= counter+1;
-                console.log("salgo");
-            }else if(counter === element.length -1){
-                counter = 0;
-                console.log("azzero sotto")
+    activeCounter(nextImage){
+        if(nextImage === true){
+            if(this.active < this.slides.length -1){
+                this.active++;
+            }else if(this.active === this.slides.length -1){
+                this.active = 0;
             }
         }else{
-            if(counter > 0){
-                counter--;
-                console.log("scendo")
-            }else if(counter === 0){
-                counter = element.length - 1;
-                console.log("azzero su")
+            if(this.active > 0){
+                this.active--;
+            }else if(this.active === 0){
+                this.active = this.slides.length -1;
             }
         }
-        console.log(counter);
     }
   },
 }).mount('#app')
